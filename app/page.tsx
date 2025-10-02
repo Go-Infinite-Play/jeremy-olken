@@ -1,10 +1,11 @@
 'use client'
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const timelineRef = useRef<HTMLDivElement>(null);
+  const [showEmailModal, setShowEmailModal] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,6 +25,15 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
+  const handleEmailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowEmailModal(true);
+  };
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText('jeremy.olken@gmail.com');
+  };
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -34,9 +44,13 @@ export default function Home() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 bg-[var(--primary)] rounded-full opacity-20 blur-xl"></div>
               <div className="relative w-full h-full bg-white rounded-full overflow-hidden border-4 border-[var(--primary)]">
-                <div className="w-full h-full flex items-center justify-center text-[var(--muted-foreground)] text-sm">
-                  Your headshot here
-                </div>
+                <Image
+                  src="/headshot.jpeg"
+                  alt="Jeremy Olken"
+                  fill
+                  className="object-cover object-center"
+                  priority
+                />
               </div>
             </div>
           </div>
@@ -409,28 +423,19 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <a
-              href="mailto:your.email@example.com"
+            <button
+              onClick={handleEmailClick}
               className="px-8 py-4 bg-[var(--primary)] text-white rounded-full font-semibold text-lg hover:bg-[var(--primary)]/90 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
             >
               Get in Touch
-            </a>
+            </button>
             <a
-              href="#"
-              className="px-8 py-4 bg-white text-[var(--foreground)] border-2 border-[var(--primary)] rounded-full font-semibold text-lg hover:bg-[var(--primary)] hover:text-white transition-colors"
-            >
-              View My Work
-            </a>
-          </div>
-
-          <div className="pt-4">
-            <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://www.linkedin.com/in/jeremyolken/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--primary)] hover:underline font-medium text-lg"
+              className="px-8 py-4 bg-white text-[var(--foreground)] border-2 border-[var(--primary)] rounded-full font-semibold text-lg hover:bg-[var(--primary)] hover:text-white transition-colors"
             >
-              Connect on LinkedIn →
+              Connect on LinkedIn
             </a>
           </div>
         </div>
@@ -442,6 +447,41 @@ export default function Home() {
           <p>© 2025 Jeremy Olken. Built with Claude Code.</p>
         </div>
       </footer>
+
+      {/* Email Modal */}
+      {showEmailModal && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4"
+          onClick={() => setShowEmailModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-2xl font-bold text-[var(--foreground)] mb-4">
+              Let's be real...
+            </h3>
+            <p className="text-lg text-[var(--foreground)] mb-6">
+              C'mon, these things never work. It'll probably just open up Outlook that you haven't used in 10 years. Just copy and paste my email:
+            </p>
+            <div className="bg-[var(--background)] rounded-lg p-4 mb-6 flex items-center justify-between">
+              <code className="text-lg font-mono text-[var(--foreground)]">jeremy.olken@gmail.com</code>
+              <button
+                onClick={copyEmail}
+                className="ml-4 px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary)]/90 transition-colors font-semibold"
+              >
+                Copy
+              </button>
+            </div>
+            <button
+              onClick={() => setShowEmailModal(false)}
+              className="w-full px-4 py-3 bg-[var(--foreground)] text-white rounded-lg hover:bg-[var(--foreground)]/90 transition-colors font-semibold"
+            >
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
