@@ -46,44 +46,37 @@
 :root {
   --radius: 0.625rem;
 
-  /* Claude/Anthropic Color Palette */
-  --color-coral: #CC785C;
-  --color-cream: #F4EFE6;
-  --color-dark: #1F1F1F;
-  --color-peach: #E8B4A0;
-  --color-warm-gray: #8B7E74;
-
-  --background: #F4EFE6;
-  --foreground: #1F1F1F;
-  --card: #FFFFFF;
-  --card-foreground: #1F1F1F;
-  --popover: #FFFFFF;
-  --popover-foreground: #1F1F1F;
-  --primary: #CC785C;
-  --primary-foreground: #FFFFFF;
-  --secondary: #E8B4A0;
-  --secondary-foreground: #1F1F1F;
-  --muted: #F4EFE6;
-  --muted-foreground: #8B7E74;
-  --accent: #E8B4A0;
-  --accent-foreground: #1F1F1F;
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #0a0a0a;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #0a0a0a;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: #E0D5C7;
-  --input: #E0D5C7;
-  --ring: #CC785C;
-  --chart-1: #CC785C;
-  --chart-2: #E8B4A0;
-  --chart-3: #8B7E74;
-  --chart-4: #F4EFE6;
-  --chart-5: #1F1F1F;
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #1F1F1F;
-  --sidebar-primary: #CC785C;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #E8B4A0;
-  --sidebar-accent-foreground: #1F1F1F;
-  --sidebar-border: #E0D5C7;
-  --sidebar-ring: #CC785C;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #0a0a0a;
+  --chart-1: #0a0a0a;
+  --chart-2: #71717a;
+  --chart-3: #a1a1aa;
+  --chart-4: #d4d4d8;
+  --chart-5: #2563eb;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0a0a0a;
+  --sidebar-primary: #0a0a0a;
+  --sidebar-primary-foreground: #fafafa;
+  --sidebar-accent: #f4f4f5;
+  --sidebar-accent-foreground: #0a0a0a;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #0a0a0a;
 }
 
 .dark {
@@ -127,13 +120,7 @@
   body {
     @apply bg-background text-foreground;
   }
-
   html {
     scroll-behavior: smooth;
-  }
-
-  .timeline-card.animate-in {
-    opacity: 1 !important;
-    transform: translateY(0) !important;
   }
 }

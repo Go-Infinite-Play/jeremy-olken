@@ -13,13 +13,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jeremy Olken - AI-Native Operator & Consultant",
-  description: "AI-native operator bridging emerging technology and business impact. I build with Claude Code, Cursor, N8N, and Lindy.AI to help teams transform for the AI era.",
-  keywords: ["AI consultant", "AI-native operator", "Claude Code", "Cursor", "N8N", "Lindy.AI", "digital transformation", "AI automation"],
+  title: "Jeremy Olken",
+  description:
+    "VP, AI Products at GMR Marketing. I follow my curiosity and build things.",
   authors: [{ name: "Jeremy Olken" }],
   openGraph: {
-    title: "Jeremy Olken - AI-Native Operator & Consultant",
-    description: "Bridging the gap between emerging technology and business impact",
+    title: "Jeremy Olken",
+    description: "I follow my curiosity and build things.",
     type: "website",
   },
 };
